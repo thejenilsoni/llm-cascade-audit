@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+data_real/
+results_sim/
+logs/
+results_*.zip
+results_real/.done/
+paper/*.aux
+paper/*.log
+paper/*.out

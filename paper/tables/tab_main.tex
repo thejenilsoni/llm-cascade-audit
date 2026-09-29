@@ -1,0 +1,17 @@
+\begin{table*}[t]\centering\small
+\caption{E1: main comparison on real data (16{,}481 questions; mean $\pm$ s.d.\ over 5 random splits; every method tuned on the training half only). AUCC: area under the accuracy--cost curve (higher is better). Cost@99: cost to reach 99\% of the largest model's accuracy, as \% of calling that model alone (-- = not reached in every split). Best non-oracle AUCC in bold.}\label{tab:main}
+\begin{tabular}{lrrrrrr}\toprule
+ & \multicolumn{2}{c}{Qwen1.5 (7 models)} & \multicolumn{2}{c}{Llama-2 (3)} & \multicolumn{2}{c}{Mistral (3)}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+Method & AUCC & Cost@99 & AUCC & Cost@99 & AUCC & Cost@99\\\midrule
+Global threshold & 0.668\,{\scriptsize$\pm$0.008} & 112\% & 0.584\,{\scriptsize$\pm$0.009} & 111\% & 0.726\,{\scriptsize$\pm$0.004} & 98\%\\
+Per-stage threshold & 0.711\,{\scriptsize$\pm$0.002} & 96\% & 0.603\,{\scriptsize$\pm$0.006} & 109\% & 0.734\,{\scriptsize$\pm$0.002} & 94\%\\
+Per-stage + category thr. & 0.713\,{\scriptsize$\pm$0.002} & 101\% & 0.616\,{\scriptsize$\pm$0.003} & 107\% & 0.737\,{\scriptsize$\pm$0.002} & 93\%\\
+VoC-Stop & 0.696\,{\scriptsize$\pm$0.002} & -- & 0.615\,{\scriptsize$\pm$0.003} & -- & 0.731\,{\scriptsize$\pm$0.002} & 122\%\\
+Learned deferral (GBM) & 0.708\,{\scriptsize$\pm$0.002} & -- & \textbf{0.619\,{\scriptsize$\pm$0.002}} & -- & 0.734\,{\scriptsize$\pm$0.003} & --\\
+Subset cascade ($\le$3) & \textbf{0.724\,{\scriptsize$\pm$0.002}} & 74\% & 0.608\,{\scriptsize$\pm$0.011} & 100\% & \textbf{0.740\,{\scriptsize$\pm$0.003}} & 81\%\\
+Single models (no cascade) & 0.721\,{\scriptsize$\pm$0.002} & 100\% & 0.593\,{\scriptsize$\pm$0.003} & 100\% & 0.725\,{\scriptsize$\pm$0.003} & 100\%\\
+\midrule
+Oracle (upper bound) & 0.899\,{\scriptsize$\pm$0.002} & 4\% & 0.778\,{\scriptsize$\pm$0.003} & 30\% & 0.843\,{\scriptsize$\pm$0.003} & 23\%\\
+\bottomrule\end{tabular}
+\end{table*}

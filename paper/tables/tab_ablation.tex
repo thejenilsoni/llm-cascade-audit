@@ -1,0 +1,15 @@
+\begin{table*}[t]\centering\small
+\caption{E5: ablation, adding one ingredient at a time (5 splits).}\label{tab:ablation}
+\begin{tabular}{lrrrrrr}\toprule
+ & \multicolumn{2}{c}{Qwen1.5 (7 models)} & \multicolumn{2}{c}{Llama-2 (3)} & \multicolumn{2}{c}{Mistral (3)}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+Method & AUCC & Cost@99 & AUCC & Cost@99 & AUCC & Cost@99\\\midrule
+raw confidence, global thr. & 0.662 & 164\% & 0.584 & 107\% & 0.726 & 98\%\\
+Global threshold & 0.668 & 112\% & 0.584 & 111\% & 0.726 & 98\%\\
+Per-stage threshold & 0.711 & 96\% & 0.603 & 109\% & 0.734 & 94\%\\
+VoC, one-step (myopic) & 0.654 & -- & 0.614 & -- & 0.734 & --\\
+VoC, lookahead, no category & \textbf{0.713} & 97\% & 0.612 & 108\% & 0.736 & 96\%\\
+VoC-Stop & 0.696 & -- & 0.615 & -- & 0.731 & 122\%\\
+Per-stage + category thr. & 0.713 & 101\% & \textbf{0.616} & 107\% & \textbf{0.737} & 93\%\\
+\bottomrule\end{tabular}
+\end{table*}

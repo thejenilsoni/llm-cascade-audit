@@ -1,0 +1,17 @@
+\begin{table*}[t]\centering\small
+\caption{E4: task shift. Rules tuned on MMLU, evaluated on ARC-Challenge + WinoGrande (category information removed; 5 training subsamples).}\label{tab:shift}
+\begin{tabular}{lrrrrrr}\toprule
+ & \multicolumn{2}{c}{Qwen1.5 (7 models)} & \multicolumn{2}{c}{Llama-2 (3)} & \multicolumn{2}{c}{Mistral (3)}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+Method & AUCC & Cost@99 & AUCC & Cost@99 & AUCC & Cost@99\\\midrule
+Global threshold & 0.634 & -- & 0.693 & 97\% & 0.740 & 83\%\\
+Per-stage threshold & 0.657 & -- & 0.696 & 87\% & 0.745 & 73\%\\
+Per-stage + category thr. & 0.657 & -- & 0.696 & 87\% & 0.745 & 73\%\\
+VoC-Stop & 0.659 & -- & \textbf{0.698} & 91\% & 0.745 & 81\%\\
+Learned deferral (GBM) & 0.671 & -- & 0.697 & 93\% & 0.743 & 90\%\\
+Subset cascade ($\le$3) & \textbf{0.695} & 62\% & 0.673 & 100\% & \textbf{0.746} & 64\%\\
+Single models (no cascade) & 0.695 & 100\% & 0.673 & 100\% & 0.738 & 100\%\\
+\midrule
+Oracle (upper bound) & 0.835 & 3\% & 0.790 & 21\% & 0.820 & 22\%\\
+\bottomrule\end{tabular}
+\end{table*}
